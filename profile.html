@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAidNet - Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8e1e1;
+        }
+        .card-custom {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-4">
+        <h2>Profile</h2>
+        <div class="card card-custom">
+            <form>
+                <div class="text-center">
+                    <img id="profilePic" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-img">
+                    <input type="file" class="form-control mt-2" id="uploadPic" accept="image/*" onchange="previewImage(event)">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Full Name</b></label>
+                    <input type="text" class="form-control" placeholder="Enter your full name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Address</b></label>
+                    <input type="text" class="form-control" placeholder="Enter your address">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label"><b>Email</b></label>
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Phone Number</b></label>
+                    <input type="tel" class="form-control" placeholder="Enter your phone number">
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Save Changes</button>
+            </form>
+            <button onclick="location.href='location.html'" class="btn btn-danger w-100 mt-3">Set up location </button>
+            <button onclick="location.href='dashboard.html'" class="btn btn-secondary w-100 mt-3">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('profilePic');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

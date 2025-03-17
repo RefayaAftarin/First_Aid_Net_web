@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAidNet - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8e1e1;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #d9534f;
+            color: white;
+            position: fixed;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #b52b27;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .card-custom {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function logout() {
+            window.location.href = 'index.html'; // Redirect to landing page
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-center">FastAidNet</h3>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="emergency.html">Emergency Requests/Responses</a>
+        <a href="#" onclick="showSection('notifications')">Notifications</a>
+        <a href="profile.html">Profile</a>
+        <a href="history.html">History</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+    <div class="content">
+        <h2>Dashboard</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-custom p-3">
+                    <h4>Active Emergencies</h4>
+                    <p>5 ongoing emergencies</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom p-3">
+                    <h4>Pending Requests</h4>
+                    <p>2 pending approvals</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom p-3">
+                    <h4>Notifications</h4>
+                    <p>3 new alerts</p>
+                </div>
+            </div>
+        </div>
+        <div id="notifications" class="section hidden">
+            <h2>Notifications</h2>
+            <div class="card card-custom">
+                <ul class="list-group">
+                    <li class="list-group-item">New emergency request received</li>
+                    <li class="list-group-item">Your response was acknowledged</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
